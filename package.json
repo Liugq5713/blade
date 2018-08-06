@@ -4,8 +4,9 @@
   "description": "旨在打造自己顺手的工具库，并且以项目驱动学习",
   "main": "main.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development electron .",
-    "dev": "webpack-dev-server --config  ./build/webpack.dev.js",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:electron\"",
+    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "dev:server": "cross-env NODE_ENV=development webpack-dev-server --config  ./build/webpack.dev.js",
     "build": "webpack  --config ./build/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +30,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^3.6.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "electron": "^2.0.0",
@@ -42,8 +44,11 @@
   },
   "dependencies": {
     "antd": "^3.7.3",
+    "font-awesome": "^4.7.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "resize-img": "^1.1.2"
   },
   "babel": {

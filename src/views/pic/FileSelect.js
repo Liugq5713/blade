@@ -3,6 +3,7 @@ import { Button, Icon, message, List } from 'antd'
 import fs from 'fs'
 import path from 'path'
 import resizeImg from 'resize-img'
+import { Table, Divider } from 'antd'
 
 const { dialog } = window.require('electron').remote
 
@@ -26,7 +27,9 @@ export default class FileSelect extends React.Component {
       filePaths => {
         this.setState({ fileList: filePaths })
         filePaths.map(filepath => {
-          console.log('  path.dirname(filepath)', path.dirname(filepath))
+          console.log('  path.dirname(filepath)', fs.stat(filepath,(err, stats)=>{
+            console.log('stats', stats)
+          }))
         })
       }
     )
@@ -55,18 +58,59 @@ export default class FileSelect extends React.Component {
   }
 
   render() {
+    const columns = [{
+      title: '文件名',
+      dataIndex: 'name',
+      key: 'name',
+      render: text => <a href="javascript:;">{text}</a>,
+    }, {
+      title: '原始大小',
+      dataIndex: 'size',
+      key: 'size',
+    }, {
+      title: '压缩后',
+      dataIndex: 'address',
+      key: 'address',
+    }, {
+      title: '操作',
+      key: 'action',
+      render: (text, record) => (
+        <span>
+          <i class="fas fa-ambulance"></i>
+          <i class="fab fa-accessible-icon"></i>
+           <Button type="primary">移除</Button>
+          <Divider type="vertical" />
+          <a href="javascript:;">Delete</a>
+          <Divider type="vertical" />
+          <a href="javascript:;" className="ant-dropdown-link">
+            More actions <Icon type="down" />
+          </a>
+        </span>
+      ),
+    }];
+    const data = [{
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    }, {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    }, {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+    }];
     const { fileList } = this.state
     return (
       <div>
         <Button onClick={this.OpenDialogToSelectFile} type="primary">
           选择文件
         </Button>
-        <List
-          header={<div>图片列表</div>}
-          bordered
-          dataSource={fileList}
-          renderItem={item => <List.Item>{item}</List.Item>}
-        />
+        <Table columns={columns} dataSource={data} />
         <Button type="primary" onClick={this.handleResize}>
           开始转化
         </Button>

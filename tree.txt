@@ -1,0 +1,23 @@
+.
+|-- LICENSE
+|-- LICENSE.md
+|-- README.md
+|-- build
+|   |-- webpack.common.js
+|   |-- webpack.dev.js
+|   `-- webpack.prod.js
+|-- main.js
+|-- package.json
+|-- src
+|   |-- App.js
+|   |-- FileSelect.js
+|   |-- Layout.js
+|   |-- components
+|   |-- index.html
+|   |-- index.js
+|   `-- view
+|-- test
+|-- tree.txt
+`-- yarn.lock
+
+4 directories, 16 files
