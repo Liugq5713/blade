@@ -10,7 +10,6 @@ module.exports = {
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
-    extensions: ['.js'],
     alias: {
       '@': path.resolve('src')
     }
@@ -27,11 +26,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /.(woff|woff2|eot|ttf)$/,
-        loader: 'url-loader?limit=100000'
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
         use: [
           {
             loader: 'url-loader',
@@ -41,12 +36,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.svg/,
-        use: {
-          loader: 'svg-url-loader'
-        }
       }
     ]
   },
