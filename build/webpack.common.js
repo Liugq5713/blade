@@ -1,13 +1,17 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const dev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  target: 'node',
+  target: 'electron-renderer',
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    filename: dev ? '[name].js' : '[chunkhash].js',
+    chunkFilename: '[chunkhash].js'
   },
   resolve: {
     alias: {
@@ -23,7 +27,7 @@ module.exports = {
       },
       {
         test: /.s?css$/,
-        use: ['style-loader', 'css-loader']
+        use: [dev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
@@ -44,8 +48,18 @@ module.exports = {
       root: process.cwd()
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html'),
-      chunksSortMode: 'none'
+      template: path.resolve(__dirname, '../src/index.html')
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: dev ? '[name].css' : '[name].[hash].css',
+      chunkFilename: dev ? '[id].css' : '[id].[hash].css'
     })
-  ]
+  ],
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 }

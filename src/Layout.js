@@ -33,9 +33,7 @@ export default function PageLayout(props) {
         <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            <div
-              style={{ padding: 24, background: '#fff'}}
-            >
+            <div style={{ padding: 24, background: '#fff' }}>
               {routes.map((route, index) => (
                 <Route
                   key={index}
@@ -47,7 +45,7 @@ export default function PageLayout(props) {
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            养天地正气，法古今完人
+            Blade ©2018 Better Late Than Never
           </Footer>
         </Layout>
       </Layout>

@@ -7,7 +7,9 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:electron\"",
     "dev:electron": "cross-env NODE_ENV=development electron .",
     "dev:server": "cross-env NODE_ENV=development webpack-dev-server --config  ./build/webpack.dev.js",
-    "build": "webpack  --config ./build/webpack.prod.js",
+    "build": "concurrently \"npm run build:server\" \"npm run build:electron\"",
+    "build:server": "cross-env NODE_ENV=production webpack  --config ./build/webpack.prod.js",
+    "build:electron": "cross-env NODE_ENV=production electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +31,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.6.1",
     "cross-env": "^5.2.0",
@@ -36,11 +39,13 @@
     "electron": "^2.0.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
+    "webpack-manifest-plugin": "^2.0.3",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
@@ -54,16 +59,18 @@
   },
   "babel": {
     "presets": [
-      "env",
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
+      "stage-2",
       "react"
     ],
     "plugins": [
       [
-        "transform-runtime",
-        {
-          "polyfill": true,
-          "regenerator": true
-        }
+        "transform-runtime"
       ],
       [
         "import",
