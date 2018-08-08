@@ -27,6 +27,31 @@
 eslint，babel 配置文件都在 package.json 文件中
 
 ```js
+├── build
+│   ├── webpack.common.js
+│   ├── webpack.dev.js
+│   └── webpack.prod.js
+├── favicon.png
+├── LICENSE
+├── LICENSE.md
+├── logo.svg
+├── main.js
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── App.js
+│   ├── assets
+│   ├── components
+│   ├── index.html
+│   ├── index.js
+│   ├── routes
+│   │   └── index.js
+│   ├── utils
+│   └── views
+│       └── ImageOptimizer
+│           ├── FileSelect.js
+│           └── index.js
 ```
 
 ## 工作流

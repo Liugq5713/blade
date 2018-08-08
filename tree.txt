@@ -3,6 +3,7 @@
 │   ├── webpack.common.js
 │   ├── webpack.dev.js
 │   └── webpack.prod.js
+├── favicon.png
 ├── LICENSE
 ├── LICENSE.md
 ├── logo.svg
@@ -16,14 +17,14 @@
 │   ├── components
 │   ├── index.html
 │   ├── index.js
-│   ├── Layout.js
-│   ├── routes.js
+│   ├── routes
+│   │   └── index.js
 │   ├── utils
 │   └── views
-│       └── pic
+│       └── ImageOptimizer
 │           ├── FileSelect.js
 │           └── index.js
 ├── tree.txt
 └── yarn.lock
 
-7 directories, 19 files
+8 directories, 19 files
