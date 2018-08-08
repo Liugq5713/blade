@@ -26,6 +26,8 @@
 
 eslint，babel 配置文件都在 package.json 文件中
 
+### 目录结构
+
 ```js
 ├── build
 │   ├── webpack.common.js
