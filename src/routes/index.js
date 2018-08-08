@@ -1,5 +1,5 @@
 import React from 'react'
-import Pic from '@/views/pic'
+import ImageOptimizer from '@/views/ImageOptimizer'
 export default [
   {
     path: '/',
@@ -9,14 +9,14 @@ export default [
     name: '主页'
   },
   {
-    path: '/pic',
+    path: '/imageOptimizer',
     type: 'picture',
-    main: ()=><Pic/>,
+    main: () => <ImageOptimizer />,
     name: '图片处理'
   },
   {
     path: '/test',
-    type: 'upload',
+    type: 'question',
     main: () => <h2>test</h2>,
     name: '测试用'
   }

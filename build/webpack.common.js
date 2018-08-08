@@ -48,7 +48,8 @@ module.exports = {
       root: process.cwd()
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html')
+      template: path.resolve(__dirname, '../src/index.html'),
+      favicon: '../favicon.png'
     }),
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({

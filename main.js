@@ -19,7 +19,6 @@ function createWindow() {
   if (process.env['NODE_ENV'] === 'development') {
     mainWindow.loadURL('http://localhost:8080/')
   } else {
-    console.log('production')
     mainWindow.loadURL(
       url.format({
         pathname: path.join(__dirname, 'dist/index.html'),
