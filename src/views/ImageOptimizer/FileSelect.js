@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Icon, message, List } from 'antd'
+import {
+  Button, message, Table, Divider
+} from 'antd'
 import fs from 'fs'
 import path from 'path'
 import resizeImg from 'resize-img'
-import { Table, Divider } from 'antd'
 
 const { dialog } = window.require('electron').remote
 
@@ -11,8 +12,7 @@ export default class FileSelect extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      fileList: [],
-      uploading: false
+      fileList: []
     }
     this.handleResize = this.handleResize.bind(this)
     this.OpenDialogToSelectFile = this.OpenDialogToSelectFile.bind(this)
@@ -27,12 +27,11 @@ export default class FileSelect extends React.Component {
       filePaths => {
         this.setState({ fileList: filePaths })
         filePaths.map(filepath => {
-          console.log(
-            '  path.dirname(filepath)',
-            fs.stat(filepath, (err, stats) => {
-              console.log('stats', stats)
-            })
-          )
+          fs.stat(filepath, (err, stats) => {
+            console.log('stats', stats)
+            console.log('err', err)
+          })
+          return null
         })
       }
     )
@@ -51,12 +50,13 @@ export default class FileSelect extends React.Component {
       }).then(buf => {
         const outPath = `${path.join(
           path.dirname(file),
-          'img/' + path.basename(file)
+          `img/${path.basename(file)}`
         )}`
         console.log('outPath', outPath)
         fs.writeFileSync(outPath, buf)
         message.success('图片转化成功')
       })
+      return file
     })
   }
 
@@ -66,22 +66,20 @@ export default class FileSelect extends React.Component {
         title: '文件名',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a href="javascript:;">{text}</a>
+        render: text => text
       },
       { title: '原始大小', dataIndex: 'size', key: 'size' },
       { title: '压缩后', dataIndex: 'address', key: 'address' },
       {
         title: '操作',
         key: 'action',
-        render: (text, record) => (
+        render: () => (
           <span>
-            <Button type="primary">移除</Button>
+            <Button type="primary">
+移除
+            </Button>
             <Divider type="vertical" />
-            <a href="javascript:;">Delete</a>
             <Divider type="vertical" />
-            <a href="javascript:;" className="ant-dropdown-link">
-              More actions <Icon type="down" />
-            </a>
           </span>
         )
       }
@@ -106,7 +104,6 @@ export default class FileSelect extends React.Component {
         address: 'Sidney No. 1 Lake Park'
       }
     ]
-    const { fileList } = this.state
     return (
       <div>
         <Button onClick={this.OpenDialogToSelectFile} type="primary">

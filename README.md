@@ -59,3 +59,7 @@ eslint，babel 配置文件都在 package.json 文件中
 ## 工作流
 
 执行操作请新开分支，分支命名规则,如 `feat/picToResize@lgq`
+
+## 其他
+
+不要安装 sass

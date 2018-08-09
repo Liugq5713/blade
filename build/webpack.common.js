@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const dev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
     chunkFilename: '[chunkhash].js'
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve('src')
     }
