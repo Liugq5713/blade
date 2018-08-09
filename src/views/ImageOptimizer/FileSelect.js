@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Button, message, Table, Divider
+  Button, message, Table, Divider, Card
 } from 'antd'
 import fs from 'fs'
 import path from 'path'
@@ -26,12 +26,11 @@ export default class FileSelect extends React.Component {
       },
       filePaths => {
         this.setState({ fileList: filePaths })
-        filePaths.map(filepath => {
+        filePaths.forEach(filepath => {
           fs.stat(filepath, (err, stats) => {
             console.log('stats', stats)
             console.log('err', err)
           })
-          return null
         })
       }
     )
@@ -76,7 +75,7 @@ export default class FileSelect extends React.Component {
         render: () => (
           <span>
             <Button type="primary">
-移除
+              移除
             </Button>
             <Divider type="vertical" />
             <Divider type="vertical" />
@@ -110,11 +109,26 @@ export default class FileSelect extends React.Component {
           <i className="fa fa-folder-open-o" aria-hidden="true" />
           &nbsp;选择文件
         </Button>
-        <Table columns={columns} dataSource={data} />
         <Button type="primary" onClick={this.handleResize}>
           <i className="fa fa-play" aria-hidden="true" />
           &nbsp;开始转化
         </Button>
+
+        <Card
+          title="Card title"
+          style={{ width: 300 }}
+        >
+          <p>
+            Card content
+          </p>
+          <p>
+            Card content
+          </p>
+          <p>
+            Card content
+          </p>
+        </Card>
+        <Table columns={columns} dataSource={data} />
       </div>
     )
   }
