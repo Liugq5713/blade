@@ -6,14 +6,10 @@ import fs from 'fs'
 import path from 'path'
 import resizeImg from 'resize-img'
 
-const { dialog } = window.require('electron').remote
 
 export default class FileSelect extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      fileList: []
-    }
     this.handleResize = this.handleResize.bind(this)
     this.OpenDialogToSelectFile = this.OpenDialogToSelectFile.bind(this)
   }
@@ -75,7 +71,7 @@ export default class FileSelect extends React.Component {
         render: () => (
           <span>
             <Button type="primary">
-              移除
+移除
             </Button>
             <Divider type="vertical" />
             <Divider type="vertical" />
@@ -114,20 +110,7 @@ export default class FileSelect extends React.Component {
           &nbsp;开始转化
         </Button>
 
-        <Card
-          title="Card title"
-          style={{ width: 300 }}
-        >
-          <p>
-            Card content
-          </p>
-          <p>
-            Card content
-          </p>
-          <p>
-            Card content
-          </p>
-        </Card>
+        <Card title="Card title" style={{ width: 300 }} />
         <Table columns={columns} dataSource={data} />
       </div>
     )
