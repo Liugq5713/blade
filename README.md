@@ -58,7 +58,38 @@ eslint，babel 配置文件都在 package.json 文件中
 
 ## 工作流
 
-执行操作请新开分支，分支命名规则,如 `feat/picToResize@lgq`
+执行操作请新开分支，分支命名规则如下：
+
+- 特性分支： `feature/add-feature`
+- 修复bug：`hotfix/fix-bug`
+
+commit信息可以参考如下规范：
+
+- feat: 新功能
+- fix: 修复⼀一个bug
+- docs: 只改了了⽂文档
+- style: 修改不不涉及代码的主要逻辑 (如格式化了了代码)
+- refactor: 改动了了代码，既不不是新功能也不不是修复bug
+- perf: 优化了了代码，提升了了性能
+- test: 增加或修改了了代码测试
+- build: 更更改了了构建流程相关的配置⽂文件和包(如glup, npm)
+- ci: 更更改了了CI配置⽂文件或脚本等(如Travis, Circle, BrowserStack, SauceLabs)
+- chore: 其它不不涉及源代码和测试代码的修改
+- revert: git revert⼀一次提交
+
+## 代码格式
+
+IDE需安装editorconfig插件，统一提交代码的格式，具体配置如下：
+
+```
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+```
 
 ## 其他
 
