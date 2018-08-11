@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageOptimizer from '@/views/ImageOptimizer'
+
 export default [
   {
     path: '/',

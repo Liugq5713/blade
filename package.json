@@ -39,13 +39,17 @@
     "electron": "^2.0.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "7.9.1",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "immutable": "3.7.4",
     "mini-css-extract-plugin": "^0.4.1",
+    "prettier": "^1.14.2",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.3",
@@ -88,19 +92,43 @@
     ]
   },
   "eslintConfig": {
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier","import"
+    ],
     "rules": {
+      "prettier/prettier": "error",
       "semi": "off",
       "max-len": "off",
       "comma-dangle": "off",
       "arrow-parens": "off",
       "no-console": "off",
       "import/no-extraneous-dependencies": "off",
-      "react/jsx-filename-extension": "off"
+      "react/jsx-filename-extension": "off",
+      "react/jsx-one-expression-per-line": "off"
     },
     "globals": {
       "window": false,
       "document": false
+    },
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "./build/webpack.common.js"
+        }
+      }
     }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "useTabs": false,
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "parser": "babylon"
   }
 }
