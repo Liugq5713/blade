@@ -27,7 +27,7 @@ module.exports = {
         enforce: 'pre',
         exclude: /node_modules/,
         loader: 'eslint-loader',
-        include: [path.join(__dirname, 'src')],
+        include: [path.join(__dirname, '../src')],
         options: {
           fix: true,
           emitError: true,
