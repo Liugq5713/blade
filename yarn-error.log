@@ -1,0 +1,161 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\kuch\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add --dev prop-types
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Pandoc\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Go\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Users\kuch\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\kuch\AppData\Local\Programs\Python\Python36-32\;C:\Users\kuch\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\kuch\AppData\Local\Programs\Fiddler;C:\Users\kuch\AppData\Local\GitHubDesktop\bin;C:\Users\kuch\AppData\Local\Microsoft\WindowsApps;%GOPATH%\bin;C:\Users\kuch\AppData\Roaming\npm
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  8.11.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EBUSY: resource busy or locked, unlink 'C:\Users\kuch\Desktop\blade\node_modules\electron\dist\content_resources_200_percent.pak'
+
+npm manifest: 
+  {
+    "name": "blade",
+    "version": "1.0.0",
+    "description": "旨在打造自己顺手的工具库，并且以项目驱动学习",
+    "main": "main.js",
+    "scripts": {
+      "dev": "concurrently \"npm run dev:server\" \"npm run dev:electron\"",
+      "dev:electron": "cross-env NODE_ENV=development electron .",
+      "dev:server": "cross-env NODE_ENV=development webpack-dev-server --config  ./build/webpack.dev.js",
+      "build": "concurrently \"npm run build:server\" \"npm run build:electron\"",
+      "build:server": "cross-env NODE_ENV=production webpack  --config ./build/webpack.prod.js",
+      "build:electron": "cross-env NODE_ENV=production electron .",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Liugq5713/blade.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Liugq5713/blade/issues"
+    },
+    "homepage": "https://github.com/Liugq5713/blade#readme",
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.1.5",
+      "babel-plugin-import": "^1.8.0",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-react": "^6.24.1",
+      "babel-preset-stage-2": "^6.24.1",
+      "clean-webpack-plugin": "^0.1.19",
+      "concurrently": "^3.6.1",
+      "cross-env": "^5.2.0",
+      "css-loader": "^1.0.0",
+      "electron": "^2.0.0",
+      "eslint": "4.19.1",
+      "eslint-config-airbnb": "^17.0.0",
+      "eslint-config-prettier": "^2.9.0",
+      "eslint-import-resolver-webpack": "^0.10.1",
+      "eslint-loader": "^2.1.0",
+      "eslint-plugin-import": "2.12.0",
+      "eslint-plugin-jsx-a11y": "6.0.3",
+      "eslint-plugin-prettier": "^2.6.2",
+      "eslint-plugin-react": "7.9.1",
+      "file-loader": "^1.1.11",
+      "html-webpack-plugin": "^3.2.0",
+      "immutable": "3.7.4",
+      "mini-css-extract-plugin": "^0.4.1",
+      "prettier": "^1.14.2",
+      "style-loader": "^0.21.0",
+      "url-loader": "^1.0.1",
+      "webpack": "^4.16.3",
+      "webpack-cli": "^3.1.0",
+      "webpack-dev-server": "^3.1.5",
+      "webpack-manifest-plugin": "^2.0.3",
+      "webpack-merge": "^4.1.4"
+    },
+    "dependencies": {
+      "antd": "^3.7.3",
+      "font-awesome": "^4.7.0",
+      "react": "^16.4.2",
+      "react-dom": "^16.4.2",
+      "react-router": "^4.3.1",
+      "react-router-dom": "^4.3.1",
+      "resize-img": "^1.1.2"
+    },
+    "babel": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-2",
+        "react"
+      ],
+      "plugins": [
+        [
+          "transform-runtime"
+        ],
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "style": "css"
+          }
+        ]
+      ]
+    },
+    "eslintConfig": {
+      "extends": [
+        "airbnb",
+        "prettier"
+      ],
+      "plugins": [
+        "prettier",
+        "import"
+      ],
+      "rules": {
+        "prettier/prettier": "error",
+        "semi": "off",
+        "max-len": "off",
+        "comma-dangle": "off",
+        "arrow-parens": "off",
+        "no-console": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-one-expression-per-line": "off"
+      },
+      "globals": {
+        "window": false,
+        "document": false
+      },
+      "settings": {
+        "import/resolver": {
+          "webpack": {
+            "config": "./build/webpack.common.js"
+          }
+        }
+      }
+    },
+    "prettier": {
+      "printWidth": 80,
+      "useTabs": false,
+      "singleQuote": true,
+      "semi": false,
+      "trailingComma": "none",
+      "bracketSpacing": true,
+      "parser": "babylon"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

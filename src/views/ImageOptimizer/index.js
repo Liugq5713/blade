@@ -31,7 +31,7 @@ export default class ImageOptmizer extends Component {
     const { FileList, config } = this.state
     return (
       <div>
-        <FileOperation FileList={FileList} />
+        <FileOperation FileList={FileList} getFiles={this.getFiles} />
         <Preset config={config} />
         <Files FileList={FileList} />
       </div>
