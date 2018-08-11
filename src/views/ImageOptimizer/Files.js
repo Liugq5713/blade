@@ -1,26 +1,23 @@
-import React, { Component } from 'react'
-// import fs from 'fs'
+import React from 'react'
+import fs from 'fs'
+import PropTypes from 'prop-types'
+
 // import path from 'path'
 
-export default class Files extends Component {
-  constructor() {
-    super()
-    this.state = {
-      fileStats: 8
-    }
-    // this.getfileStats = this.getfileStats.bind(this)
-  }
+export default function Files({ files }) {
+  console.log('files', files)
+  files.forEach(file => {
+    fs.stat(file, (err, stats) => {
+      console.log('stats', stats)
+      console.log('err', err)
+    })
+  })
+  return <h1>dd</h1>
+}
 
-  // getfileStats() {
-  //   this.props.FileList = []
-  //   fs.stat(filepath, (err, stats) => {
-  //     console.log('stats', stats)
-  //     console.log('err', err)
-  //   })
-  // }
-  render() {
-    const { fileStats } = this.state
-    console.log('fileStats', fileStats)
-    return <h1>dd</h1>
-  }
+Files.defaultProps = {
+  files: ['ss']
+}
+Files.propTypes = {
+  files: PropTypes.arrayOf(PropTypes.string)
 }
