@@ -41,6 +41,7 @@
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-prettier": "^2.6.2",
@@ -97,7 +98,8 @@
       "prettier"
     ],
     "plugins": [
-      "prettier","import"
+      "prettier",
+      "import"
     ],
     "rules": {
       "prettier/prettier": "error",

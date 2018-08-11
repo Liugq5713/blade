@@ -36,7 +36,7 @@ export default class FileSelect extends React.Component {
 
   handleResize() {
     const { fileList } = this.state
-    if (fileList.length === 0) {
+    if (fileList.length == 0) {
       message.warning('请先选择文件')
       return
     }
@@ -53,7 +53,7 @@ export default class FileSelect extends React.Component {
         fs.writeFileSync(outPath, buf)
         message.success('图片转化成功')
       })
-      return file
+      // return file
     })
   }
 
