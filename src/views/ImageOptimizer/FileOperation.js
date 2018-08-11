@@ -1,11 +1,8 @@
 import React from 'react'
-import {
-  Button, message, Table, Divider, Card
-} from 'antd'
+import { Button, message, Table, Divider, Card } from 'antd'
 import fs from 'fs'
 import path from 'path'
 import resizeImg from 'resize-img'
-
 
 export default class FileSelect extends React.Component {
   constructor(props) {
@@ -34,7 +31,7 @@ export default class FileSelect extends React.Component {
 
   handleResize() {
     const { fileList } = this.state
-    if (fileList.length === 0) {
+    if (fileList.length == 0) {
       message.warning('请先选择文件')
       return
     }
@@ -51,7 +48,7 @@ export default class FileSelect extends React.Component {
         fs.writeFileSync(outPath, buf)
         message.success('图片转化成功')
       })
-      return file
+      // return file
     })
   }
 
@@ -70,9 +67,7 @@ export default class FileSelect extends React.Component {
         key: 'action',
         render: () => (
           <span>
-            <Button type="primary">
-移除
-            </Button>
+            <Button type="primary">移除</Button>
             <Divider type="vertical" />
             <Divider type="vertical" />
           </span>

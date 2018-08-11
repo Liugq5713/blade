@@ -24,8 +24,22 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        include: [path.join(__dirname, 'src')],
+        options: {
+          fix: true,
+          emitError: true,
+          emitWarning: true,
+          failOnError: true,
+          failOnWarning: true
+        }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /.s?css$/,
@@ -51,7 +65,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
-      favicon: '../favicon.png'
+      favicon: path.resolve(__dirname, '../favicon.png')
     }),
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({

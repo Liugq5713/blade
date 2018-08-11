@@ -4,8 +4,7 @@ import { Switch } from 'antd'
 export default class Preset extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
+    this.state = {}
     this.onChange = this.onChange.bind(this)
   }
 
@@ -14,8 +13,6 @@ export default class Preset extends Component {
   }
 
   render() {
-    return (
-      <Switch defaultChecked onChange={this.onChange} />
-    )
+    return <Switch defaultChecked onChange={this.onChange} />
   }
 }
