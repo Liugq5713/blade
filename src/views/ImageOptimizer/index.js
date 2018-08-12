@@ -29,7 +29,6 @@ export default class ImageOptmizer extends Component {
 
   render() {
     const { FileList, config } = this.state
-    console.log('FileList', FileList)
     return (
       <div>
         <FileOperation FileList={FileList} getFiles={this.getFiles} />
