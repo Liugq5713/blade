@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'antd'
 // import { Button, message, Table, Divider, Card } from 'antd'
-
-console.log('PropTypes', PropTypes)
 // import fs from 'fs'
 // import path from 'path'
 // import resizeImg from 'resize-img'
@@ -24,7 +22,7 @@ class FileOperation extends React.Component {
   render() {
     return (
       <div>
-        <Button onClick={this.openFile}>test</Button>
+        <Button onClick={this.openFile}>选择文件</Button>
         <h1>test</h1>
       </div>
     )
