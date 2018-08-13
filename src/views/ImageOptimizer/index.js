@@ -9,31 +9,31 @@ export default class ImageOptmizer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      FileList: [],
+      Paths: [],
       config: {}
     }
-    this.getFiles = this.getFiles.bind(this)
+    this.getPaths = this.getPaths.bind(this)
   }
 
-  getFiles() {
+  getPaths() {
     dialog.showOpenDialog(
       {
         filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif'] }],
         properties: ['openFile', 'multiSelections']
       },
-      files => {
-        this.setState({ FileList: files })
+      paths => {
+        this.setState({ Paths: paths })
       }
     )
   }
 
   render() {
-    const { FileList, config } = this.state
+    const { Paths, config } = this.state
     return (
       <div>
-        <FileOperation FileList={FileList} getFiles={this.getFiles} />
+        <FileOperation Paths={Paths} getPaths={this.getPaths} />
         <Preset config={config} />
-        <Files FileList={FileList} />
+        <Files Paths={Paths} />
       </div>
     )
   }

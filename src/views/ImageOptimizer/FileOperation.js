@@ -17,8 +17,8 @@ class FileOperation extends React.Component {
   }
 
   openFile() {
-    const { getFiles } = this.props
-    getFiles()
+    const { getPaths } = this.props
+    getPaths()
   }
 
   render() {
@@ -32,6 +32,6 @@ class FileOperation extends React.Component {
 }
 
 FileOperation.propTypes = {
-  getFiles: PropTypes.func.isRequired
+  getPaths: PropTypes.func.isRequired
 }
 export default FileOperation

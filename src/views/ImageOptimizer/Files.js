@@ -5,12 +5,9 @@ import { Table } from 'antd'
 
 // import path from 'path'
 
-export default function Files({ FileList }) {
-  const files = FileList.map((path, idx) => {
+export default function Files({ Paths }) {
+  const FileList = Paths.map((path, idx) => {
     const stat = fs.statSync(path)
-    console.log('stat', stat)
-    console.log('...stat', { ...stat })
-    console.log('stat.Stats', stat.Stats)
     return { ...stat, path, key: idx }
   })
   const columns = [
@@ -19,13 +16,21 @@ export default function Files({ FileList }) {
     { title: '修改时间', dataIndex: 'mtimeMs', key: 'mtimeMs' }
   ]
 
-  return <Table dataSource={files} columns={columns} />
+  const isShowPagination = FileList.length > 5 && true
+
+  return (
+    <Table
+      dataSource={FileList}
+      columns={columns}
+      pagination={isShowPagination}
+    />
+  )
 }
 
 Files.defaultProps = {
-  FileList: []
+  Paths: []
 }
 
 Files.propTypes = {
-  FileList: PropTypes.arrayOf(PropTypes.string)
+  Paths: PropTypes.arrayOf(PropTypes.string)
 }

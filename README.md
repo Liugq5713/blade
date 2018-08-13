@@ -58,14 +58,14 @@ eslint，babel 配置文件都在 package.json 文件中
 
 ## 工作流
 
-执行操作请新开分支，分支命名规则如下：
+### 执行操作请新开分支，分支命名规则如下：
 
 - 特性分支： `feat/add-feature@xxx`
 - 修复bug：`fix/fix-bug@xxx`
 
 @xxx为项目开发者的代码，姓名缩写都行。比如 `feat/add-some-feature@lgq`
 
-commit信息可以参考如下规范：
+### commit信息可以参考如下规范：
 
 - feat: 新功能
 - fix: 修复⼀一个bug
@@ -79,7 +79,9 @@ commit信息可以参考如下规范：
 - chore: 其它不涉及源代码和测试代码的修改
 - revert: git revert 一次提交
 
+### Pull request
 
+在开发项目中时不能直接在 master 上直接修改或添加删除代码的，需要基于 master 按照规则新开分支。待功能开发完毕，在 gitlab 上新开一个 pull request，并打上合适的 tags，邀请需要 review 代码的人。等代码审核通过后才能合并到 master 分支。
 
 ## 代码格式
 
