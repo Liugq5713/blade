@@ -23,7 +23,6 @@ class FileOperation extends React.Component {
     return (
       <div>
         <Button onClick={this.openFile}>选择文件</Button>
-        <h1>test</h1>
       </div>
     )
   }

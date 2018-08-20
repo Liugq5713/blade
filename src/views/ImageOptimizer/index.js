@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FileOperation from './FileOperation'
 import Preset from './Preset'
 import Files from './Files'
+import defaultConfig from './defaultConfig'
 
 const { dialog } = window.require('electron').remote
 
@@ -10,9 +11,10 @@ export default class ImageOptmizer extends Component {
     super(props)
     this.state = {
       Paths: [],
-      config: {}
+      config: { ...defaultConfig }
     }
     this.getPaths = this.getPaths.bind(this)
+    this.formOnChange = this.formOnChange.bind(this)
   }
 
   getPaths() {
@@ -27,12 +29,20 @@ export default class ImageOptmizer extends Component {
     )
   }
 
+  formOnChange(key, value) {
+    this.setState(prevState => {
+      const obj = {}
+      obj[key] = value
+      return { config: { ...prevState.config, ...obj } }
+    })
+  }
+
   render() {
     const { Paths, config } = this.state
     return (
       <div>
         <FileOperation Paths={Paths} getPaths={this.getPaths} />
-        <Preset config={config} />
+        <Preset config={config} formOnChange={this.formOnChange} />
         <Files Paths={Paths} />
       </div>
     )
