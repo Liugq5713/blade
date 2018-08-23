@@ -24,13 +24,13 @@ export default class Preset extends Component {
             <Col span={12}>
               <FormItem label="调整尺寸" labelCol={{ span: 5 }}>
                 <Switch
-                  defaultChecked
+                  value={config.resize}
                   onChange={val => this.switchOnchange(val, 'resize')}
                 />
               </FormItem>
               <FormItem label="保持比例" labelCol={{ span: 5 }}>
                 <Switch
-                  defaultChecked
+                  value={config.maintainAspectRatio}
                   onChange={val =>
                     this.switchOnchange(val, 'maintainAspectRatio')
                   }
@@ -41,14 +41,20 @@ export default class Preset extends Component {
                 labelCol={{ span: 5 }}
                 wrapperCol={{ span: 6 }}
               >
-                <Input />
+                <Input
+                  value={config.width}
+                  onChange={val => this.switchOnchange(val, 'width')}
+                />
               </FormItem>
               <FormItem
                 label="高"
                 labelCol={{ span: 5 }}
                 wrapperCol={{ span: 6 }}
               >
-                <Input />
+                <Input
+                  value={config.height}
+                  onChange={val => this.switchOnchange(val, 'height')}
+                />
               </FormItem>
             </Col>
           </Row>

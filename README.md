@@ -68,7 +68,7 @@ eslint，babel 配置文件都在 package.json 文件中
 ### commit信息可以参考如下规范：
 
 - feat: 新功能
-- fix: 修复⼀一个bug
+- fix: 修复了一个bug
 - docs: 只改了了⽂文档
 - style: 修改不不涉及代码的主要逻辑 (如格式化了了代码)
 - refactor: 改动了代码，既不不是新功能也不不是修复bug

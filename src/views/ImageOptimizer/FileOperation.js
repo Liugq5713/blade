@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'antd'
 // import { Button, message, Table, Divider, Card } from 'antd'
-// import fs from 'fs'
+import fs from 'fs'
+import gm from 'gm'
+
+// const imageMagick = gm.subClass({ imageMagick: true })
 // import path from 'path'
 // import resizeImg from 'resize-img'
 
@@ -19,10 +22,23 @@ class FileOperation extends React.Component {
     getPaths()
   }
 
+  handlePng = () => {
+    const { Paths } = this.props
+    Paths.forEach(path => {
+      console.log('path', path)
+      gm(path)
+        .resize(100, 100)
+        .write('./png/666.png', function(err) {
+          if (err) console.log(err)
+        })
+    })
+  }
+
   render() {
     return (
       <div>
         <Button onClick={this.openFile}>选择文件</Button>
+        <Button onClick={this.handlePng}>安排</Button>
       </div>
     )
   }

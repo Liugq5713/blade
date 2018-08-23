@@ -7,6 +7,7 @@ export default {
   interlace: true,
   strip: true,
   shrinkOnly: true,
+  // 保持比例
   maintainAspectRatio: true,
   resize: true
 }
