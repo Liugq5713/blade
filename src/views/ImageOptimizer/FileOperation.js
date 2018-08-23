@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Button } from 'antd'
 // import { Button, message, Table, Divider, Card } from 'antd'
 import fs from 'fs'
-import gm from 'gm'
+// import gm from 'gm'
+const gm = require('gm').subClass({ imageMagick: true })
 
 // const imageMagick = gm.subClass({ imageMagick: true })
 // import path from 'path'
@@ -26,11 +27,18 @@ class FileOperation extends React.Component {
     const { Paths } = this.props
     Paths.forEach(path => {
       console.log('path', path)
-      gm(path)
-        .resize(100, 100)
-        .write('./png/666.png', function(err) {
-          if (err) console.log(err)
-        })
+      // gm(path)
+      //   .resize(100, 100)
+      //   .write('./png/666.png', function(err) {
+      //     if (err) console.log(err)
+      //   })
+      gm(path).size((err, size) => {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log('size', size)
+        }
+      })
     })
   }
 
