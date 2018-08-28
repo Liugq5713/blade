@@ -27,18 +27,12 @@ class FileOperation extends React.Component {
     const { Paths } = this.props
     Paths.forEach(path => {
       console.log('path', path)
-      // gm(path)
-      //   .resize(100, 100)
-      //   .write('./png/666.png', function(err) {
-      //     if (err) console.log(err)
-      //   })
-      gm(path).size((err, size) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log('size', size)
-        }
-      })
+      gm(path)
+        .resize(100, 100)
+        .write(path, function(err) {
+          if (err) console.log(err)
+          console.log('success')
+        })
     })
   }
 
