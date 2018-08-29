@@ -3,14 +3,14 @@ export default {
   // format: '',
   width: '1080',
   height: '',
-  outputDir: undefined,
-  isOutputToSameDir: false,
-  shrinkOnly: true,
+  outputDir: undefined
+  // isOutputToSameDir: false,
+  // shrinkOnly: true,
   // 保持比例
-  maintainAspectRatio: true,
-  resize: true,
+  // maintainAspectRatio: true,
+  // resize: true,
 
-  quality: '',
-  interlace: true,
-  strip: true
+  // quality: '',
+  // interlace: true,
+  // strip: true
 }

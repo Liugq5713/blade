@@ -7,10 +7,12 @@ export default class Preset extends Component {
   constructor(props) {
     super(props)
     this.state = {}
-    this.switchOnchange = this.switchOnchange.bind(this)
+    this.handleFormItemOnChange = this.handleFormItemOnChange.bind(this)
   }
 
-  switchOnchange(val, key) {
+  handleFormItemOnChange(val, key) {
+    console.log('val', val)
+    console.log('key', key)
     const { formOnChange } = this.props
     formOnChange(key, val)
   }
@@ -25,14 +27,14 @@ export default class Preset extends Component {
               <FormItem label="调整尺寸" labelCol={{ span: 5 }}>
                 <Switch
                   value={config.resize}
-                  onChange={val => this.switchOnchange(val, 'resize')}
+                  onChange={val => this.handleFormItemOnChange(val, 'resize')}
                 />
               </FormItem>
               <FormItem label="保持比例" labelCol={{ span: 5 }}>
                 <Switch
                   value={config.maintainAspectRatio}
                   onChange={val =>
-                    this.switchOnchange(val, 'maintainAspectRatio')
+                    this.handleFormItemOnChange(val, 'maintainAspectRatio')
                   }
                 />
               </FormItem>
@@ -43,7 +45,9 @@ export default class Preset extends Component {
               >
                 <Input
                   value={config.width}
-                  onChange={val => this.switchOnchange(val, 'width')}
+                  onChange={ev =>
+                    this.handleFormItemOnChange(ev.target.value, 'width')
+                  }
                 />
               </FormItem>
               <FormItem
@@ -53,7 +57,9 @@ export default class Preset extends Component {
               >
                 <Input
                   value={config.height}
-                  onChange={val => this.switchOnchange(val, 'height')}
+                  onChange={ev =>
+                    this.handleFormItemOnChange(ev.target.value, 'height')
+                  }
                 />
               </FormItem>
             </Col>
